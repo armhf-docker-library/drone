@@ -7,19 +7,19 @@ build:
     - GO15VENDOREXPERIMENT=1
   commands:
     - make deps gen
-    - make test test_postgres test_mysql
+    #- make test test_postgres test_mysql
     - make build build_static deb docs
 
-compose:
-  postgres:
-    image: postgres:9.4.5
-    environment:
-      - POSTGRES_USER=postgres
-  mysql:
-    image: mysql:5.6.27
-    environment:
-      - MYSQL_DATABASE=test
-      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+#compose:
+  #postgres:
+    #image: postgres:9.4.5
+    #environment:
+      #- POSTGRES_USER=postgres
+  #mysql:
+    #image: mysql:5.6.27
+    #environment:
+      #- MYSQL_DATABASE=test
+      #- MYSQL_ALLOW_EMPTY_PASSWORD=yes
 
 publish:
   docker:
