@@ -23,13 +23,13 @@ build:
 
 publish:
   docker:
-    username: drone
-    password: $$DOCKER_PASS
+    username: $$DOCKER_USER
+    password: $$DOCKER_PASSWORD
     email: $$DOCKER_EMAIL
-    repo: drone/drone
+    repo: armhfbuild/drone
     tag:
-      - "latest" 
+      - "latest"
       - "0.4"
     when:
-      repo: drone/drone
+      repo: armhfbuild/drone
       branch: master
