@@ -27,6 +27,7 @@ publish:
     password: $$DOCKER_PASSWORD
     email: $$DOCKER_EMAIL
     repo: armhfbuild/drone
+    storage_driver: overlay
     tag:
       - "latest"
       - "0.4"
