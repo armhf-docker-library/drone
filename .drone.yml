@@ -22,20 +22,25 @@ build:
       #- MYSQL_ALLOW_EMPTY_PASSWORD=yes
 
 publish:
-  docker: &publish_docker
+  docker_master:
+    image: armhfplugins/drone-docker
     username: $$DOCKER_USER
     password: $$DOCKER_PASSWORD
     email: $$DOCKER_EMAIL
     repo: armhfbuild/drone
-    storage_driver: overlay
     tag:
       - "latest"
       - "0.4"
     when:
       repo: armhf-docker-library/drone
       branch: master
-  docker:
-    <<: *publish_docker
+
+  docker_branch:
+    image: armhfplugins/drone-docker
+    username: $$DOCKER_USER
+    password: $$DOCKER_PASSWORD
+    email: $$DOCKER_EMAIL
+    repo: armhfbuild/drone
     tag: $$BRANCH
     when:
       repo: armhf-docker-library/drone
