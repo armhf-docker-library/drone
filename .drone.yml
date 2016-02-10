@@ -23,7 +23,7 @@ build:
 
 publish:
   docker_master:
-    image: armhfplugins/drone-docker
+    image: armhfplugins/drone-docker:docker-caching
     username: $$DOCKER_USER
     password: $$DOCKER_PASSWORD
     email: $$DOCKER_EMAIL
@@ -36,7 +36,7 @@ publish:
       branch: master
 
   docker_branch:
-    image: armhfplugins/drone-docker
+    image: armhfplugins/drone-docker:docker-caching
     username: $$DOCKER_USER
     password: $$DOCKER_PASSWORD
     email: $$DOCKER_EMAIL
@@ -44,3 +44,7 @@ publish:
     tag: $$BRANCH
     when:
       repo: armhf-docker-library/drone
+
+cache:
+  mount:
+    - /drone/docker
