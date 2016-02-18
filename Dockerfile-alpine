@@ -1,8 +1,12 @@
 FROM armhfbuild/alpine:3.3
+RUN apk --update-cache add ca-certificates
+
 EXPOSE 8000
-ADD contrib/docker/etc/nsswitch.conf /etc/
+COPY contrib/docker/etc/nsswitch.conf /etc/
 
 ENV DATABASE_DRIVER=sqlite3
 ENV DATABASE_CONFIG=/var/lib/drone/drone.sqlite
 
-ADD drone_static /drone_static
+COPY drone_static /drone_static
+
+ENTRYPOINT ["/drone_static"]
