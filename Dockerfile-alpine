@@ -12,7 +12,7 @@
 #
 #     docker build --rm=true -t drone/drone .
 
-FROM centurylink/ca-certs
+FROM armhfbuild/alpine:3.3
 EXPOSE 8000
 ADD contrib/docker/etc/nsswitch.conf /etc/
 
