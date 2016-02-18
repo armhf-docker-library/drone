@@ -28,6 +28,7 @@ publish:
     password: $$DOCKER_PASSWORD
     email: $$DOCKER_EMAIL
     repo: armhfbuild/drone
+    force_tag: true
     tag:
       - "latest"
       - "0.4"
@@ -42,6 +43,7 @@ publish:
     password: $$DOCKER_PASSWORD
     email: $$DOCKER_EMAIL
     repo: armhfbuild/drone
+    force_tag: true
     tag:
       - "0.4-alpine"
     when:
@@ -54,6 +56,7 @@ publish:
     password: $$DOCKER_PASSWORD
     email: $$DOCKER_EMAIL
     repo: armhfbuild/drone
+    force_tag: true    
     tag: $$BRANCH
     when:
       repo: armhf-docker-library/drone
